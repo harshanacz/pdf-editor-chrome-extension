@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "PDF Editor",
+  "version": "1.0",
+  "description": "Edit PDFs directly in Chrome like Edge browser",
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["editor/*", "lib/*"],
+      "matches": ["*://*/*"]
+    }
+  ]
+}
