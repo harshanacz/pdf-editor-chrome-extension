@@ -1,5 +1,8 @@
 // Initialize PDF.js
-pdfjsLib.GlobalWorkerOptions.workerSrc = '../lib/pdf.worker.js';
+import * as pdfjsLib from '../lib/pdf.mjs';
+pdfjsLib.GlobalWorkerOptions.workerSrc = '../lib/pdf.worker.mjs';
+
+// ...rest of your code
 
 // Variables to store editor state
 let pdfDoc = null;
